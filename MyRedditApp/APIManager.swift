@@ -13,6 +13,7 @@ struct RedditListing: Codable {
 }
 
 struct RedditData: Codable {
+    let after: String?
     let children: [RedditPostDataContainer]
 }
 
@@ -44,15 +45,22 @@ enum APIError: Error {
 class APIManager {
     
     static let shared = APIManager()
-    func fetchData(subreddit: String, limit: Int, after: String?)throws -> RedditPost {
+    
+    func fetchData(subreddit: String, limit: Int, after: String?) throws -> RedditListing {
         var components = URLComponents(string: "https://www.reddit.com/r/\(subreddit)/top.json")!
-               components.queryItems = [
-                   URLQueryItem(name: "limit", value: "\(limit)")
-               ]
+        components.queryItems = [
+            URLQueryItem(name: "limit", value: "\(limit)")
+        ]
+        
+
+        if let after = after {
+            components.queryItems?.append(URLQueryItem(name: "after", value: after))
+        }
         
         guard let url = components.url else {
-                   throw APIError.invalidURL
-               }
+            throw APIError.invalidURL
+        }
+        
         let group = DispatchGroup()
         var resultData: Data?
         var resultError: Error?
@@ -66,15 +74,10 @@ class APIManager {
         
         group.wait()
         
-//        if let data = resultData, let jsonString = String(data: data, encoding: .utf8) {
-//            print("JSON Response: \(jsonString)")
-//        }
-
-
         if let error = resultError {
             throw error
         }
-
+        
         guard let responseData = resultData else {
             throw APIError.noDataReceived
         }
@@ -82,27 +85,13 @@ class APIManager {
         do {
             let jsonDecoder = JSONDecoder()
             let decodedObject = try jsonDecoder.decode(RedditListing.self, from: responseData)
-            
-            guard let post = decodedObject.data.children.first?.data else {
-                throw APIError.decodingError(NSError(domain: "Invalid data format", code: 0, userInfo: nil))
-            }
-            let redditPost = RedditPost(
-                title: post.title,
-                author: post.author,
-                created_utc: post.created_utc,
-                thumbnail: post.thumbnail,
-                num_comments: post.num_comments,
-                url: post.url,
-                ups: post.ups,
-                downs: post.downs,
-                domain: post.domain
-            )
-            return redditPost
+            return decodedObject
         } catch let decodingError {
             throw APIError.decodingError(decodingError)
         }
     }
 }
+
 
 extension RedditPost {
     

@@ -9,25 +9,33 @@
 /* Begin PBXBuildFile section */
 		169168462B7A9B6B000E780F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168452B7A9B6B000E780F /* AppDelegate.swift */; };
 		169168482B7A9B6B000E780F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168472B7A9B6B000E780F /* SceneDelegate.swift */; };
-		1691684A2B7A9B6B000E780F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168492B7A9B6B000E780F /* ViewController.swift */; };
 		1691684D2B7A9B6B000E780F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1691684B2B7A9B6B000E780F /* Main.storyboard */; };
 		1691684F2B7A9B6D000E780F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1691684E2B7A9B6D000E780F /* Assets.xcassets */; };
 		169168522B7A9B6D000E780F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 169168502B7A9B6D000E780F /* LaunchScreen.storyboard */; };
 		1691685B2B7A9C85000E780F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1691685A2B7A9C85000E780F /* SDWebImage */; };
 		1691685D2B7A9C85000E780F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1691685C2B7A9C85000E780F /* SDWebImageMapKit */; };
 		1691685F2B7B6A9D000E780F /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1691685E2B7B6A9D000E780F /* APIManager.swift */; };
+		169168612B851A8F000E780F /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168602B851A8F000E780F /* PostListViewController.swift */; };
+		1691686B2B85532B000E780F /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1691686A2B85532B000E780F /* PostTableViewCell.swift */; };
+		169168912B8D8121000E780F /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169168902B8D8121000E780F /* PostView.xib */; };
+		169168952B8E390D000E780F /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168942B8E390D000E780F /* PostView.swift */; };
+		169168972B8E51A1000E780F /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168962B8E51A1000E780F /* PostDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		169168422B7A9B6B000E780F /* MyRedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169168452B7A9B6B000E780F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		169168472B7A9B6B000E780F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		169168492B7A9B6B000E780F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1691684C2B7A9B6B000E780F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1691684E2B7A9B6D000E780F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		169168512B7A9B6D000E780F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		169168532B7A9B6D000E780F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1691685E2B7B6A9D000E780F /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		169168602B851A8F000E780F /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		1691686A2B85532B000E780F /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		169168902B8D8121000E780F /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		169168942B8E390D000E780F /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		169168962B8E51A1000E780F /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +72,16 @@
 			children = (
 				169168452B7A9B6B000E780F /* AppDelegate.swift */,
 				169168472B7A9B6B000E780F /* SceneDelegate.swift */,
-				169168492B7A9B6B000E780F /* ViewController.swift */,
+				169168902B8D8121000E780F /* PostView.xib */,
+				169168942B8E390D000E780F /* PostView.swift */,
 				1691684B2B7A9B6B000E780F /* Main.storyboard */,
+				1691686A2B85532B000E780F /* PostTableViewCell.swift */,
 				1691684E2B7A9B6D000E780F /* Assets.xcassets */,
 				169168502B7A9B6D000E780F /* LaunchScreen.storyboard */,
 				169168532B7A9B6D000E780F /* Info.plist */,
 				1691685E2B7B6A9D000E780F /* APIManager.swift */,
+				169168602B851A8F000E780F /* PostListViewController.swift */,
+				169168962B8E51A1000E780F /* PostDetailsViewController.swift */,
 			);
 			path = MyRedditApp;
 			sourceTree = "<group>";
@@ -141,6 +153,7 @@
 			files = (
 				169168522B7A9B6D000E780F /* LaunchScreen.storyboard in Resources */,
 				1691684F2B7A9B6D000E780F /* Assets.xcassets in Resources */,
+				169168912B8D8121000E780F /* PostView.xib in Resources */,
 				1691684D2B7A9B6B000E780F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,9 +166,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1691685F2B7B6A9D000E780F /* APIManager.swift in Sources */,
-				1691684A2B7A9B6B000E780F /* ViewController.swift in Sources */,
+				169168612B851A8F000E780F /* PostListViewController.swift in Sources */,
+				169168972B8E51A1000E780F /* PostDetailsViewController.swift in Sources */,
 				169168462B7A9B6B000E780F /* AppDelegate.swift in Sources */,
 				169168482B7A9B6B000E780F /* SceneDelegate.swift in Sources */,
+				169168952B8E390D000E780F /* PostView.swift in Sources */,
+				1691686B2B85532B000E780F /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
