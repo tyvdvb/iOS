@@ -57,7 +57,12 @@ class PostListViewController: UIViewController {
             let fetchedData = try APIManager.shared.fetchData(subreddit: subreddit, limit: pageSize, after: after)
             after = fetchedData.data.after
             
-            let fetchedPosts = fetchedData.data.children.map { $0.data }
+            var fetchedPosts = fetchedData.data.children.map { $0.data }
+            let savedPosts = DataManager.shared.getAllSavedPosts()
+            for index in 0..<fetchedPosts.count {
+                let post = fetchedPosts[index]
+                fetchedPosts[index].saved = savedPosts.contains { $0.id == post.id }
+            }
             posts.append(contentsOf: fetchedPosts)
             tableView.reloadData()
         } catch {
@@ -65,7 +70,6 @@ class PostListViewController: UIViewController {
         }
         isFetching = false
     }
-    
     
 }
 
@@ -83,6 +87,7 @@ extension PostListViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellIdentifiear, for: indexPath) as! PostTableViewCell
         let post = posts[indexPath.row]
         cell.configure(with: post)
+        cell.updateSaveButtonUI()
         return cell
     }
     

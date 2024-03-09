@@ -19,19 +19,23 @@ struct RedditData: Codable {
 
 struct RedditPostDataContainer: Codable {
     let data: RedditPost
+    
 }
 
-struct RedditPost: Codable {
+struct RedditPost: Codable, Equatable {
+    let id: String
     let title: String
     let author: String
     let created_utc: TimeInterval
     let thumbnail: String?
     let num_comments: Int
-    var saved: Bool { return false }
+    var saved: Bool = false
     let url: String
     let ups: Int
     let downs: Int
     let domain : String?
+ 
+   
 }
 
 
@@ -52,7 +56,7 @@ class APIManager {
             URLQueryItem(name: "limit", value: "\(limit)")
         ]
         
-
+        
         if let after = after {
             components.queryItems?.append(URLQueryItem(name: "after", value: after))
         }
@@ -81,7 +85,7 @@ class APIManager {
         guard let responseData = resultData else {
             throw APIError.noDataReceived
         }
-
+        
         do {
             let jsonDecoder = JSONDecoder()
             let decodedObject = try jsonDecoder.decode(RedditListing.self, from: responseData)
@@ -90,6 +94,7 @@ class APIManager {
             throw APIError.decodingError(decodingError)
         }
     }
+    
 }
 
 
@@ -116,10 +121,20 @@ extension RedditPost {
             return "just now"
         }
     }
-
+    
     var displayInfo: String {
         let domain = self.domain ?? "Unknown Domain"
         return "\(author) • \(formattedTime) • \(domain)"
     }
+    
+    // Method to generate a unique identifier for a post
+    static func uniqueIdentifier(for post: RedditPost) -> String {
+        return "\(post.title)_\(post.author)"
+    }
+    
+    static func == (lhs: RedditPost, rhs: RedditPost) -> Bool {
+        return lhs.id == rhs.id
+    }
+
 }
 

@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class PostView: UIView {
     
     
@@ -21,6 +22,8 @@ class PostView: UIView {
     @IBOutlet weak var commentsLabel: UIButton!
     
     private var redditPost: RedditPost?
+    
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,8 +52,6 @@ class PostView: UIView {
             let correctedURL = thumbnailURL.replacingOccurrences(of: "&amp;", with: "&")
             postImage.sd_setImage(with: URL(string: correctedURL), completed: nil)
         }
-        
-        savedBookmark.setImage(UIImage(systemName: "bookmark"), for: .normal)
         commentsLabel.setTitle("\(redditPost.num_comments)", for: .normal)
         rattingLabel.setTitle("\(redditPost.rating)", for: .normal)
         
@@ -64,9 +65,67 @@ class PostView: UIView {
         usernameLabel.text = "username"
         savedBookmark.setImage(nil, for: .normal)
         rattingLabel.setTitle("0", for: .normal)
-        commentsLabel.setTitle("4", for: .normal)
+        commentsLabel.setTitle("0", for: .normal)
         redditPost = nil
     }
+    
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        guard let redditPost = redditPost else { return }
+        
+        let shareURL = URL(string: redditPost.url)
+        let items: [Any] = [shareURL as Any, redditPost.saved]
+        
+        if let viewController = self.findViewController() {
+            let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            viewController.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func findViewController() -> UIViewController? {
+        var responder: UIResponder? = self
+        while let nextResponder = responder?.next {
+            if let viewController = nextResponder as? UIViewController {
+                return viewController
+            }
+            responder = nextResponder
+        }
+        return nil
+    }
+    
+    func updateSaveButtonUI() {
+        guard let redditPost = redditPost else {
+            return
+        }
+        let imageName = redditPost.saved ? "bookmark.fill" : "bookmark"
+        let buttonImage = UIImage(systemName: imageName)
+        savedBookmark.setImage(buttonImage, for: .normal)
+    }
+    
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        guard var redditPost = redditPost else { return }
+        redditPost.saved = !redditPost.saved
+        
+        // Save or remove the post based on its saved status
+        if redditPost.saved {
+            DataManager.shared.savePost(redditPost)
+            
+        } else {
+            DataManager.shared.unsavePost(redditPost)
+            
+        }
+        
+        // Updating UI
+        let imageName = redditPost.saved ? "bookmark.fill" : "bookmark"
+        let buttonImage = UIImage(systemName: imageName)
+        savedBookmark.setImage(buttonImage, for: .normal)
+        self.redditPost = redditPost
+        
+        print(DataManager.shared.getAllSavedPosts())
+        
+    }
+    
 }
 
 extension UIView

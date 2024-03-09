@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1690F3AE2B977E2700D68109 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690F3AD2B977E2700D68109 /* DataManager.swift */; };
 		169168462B7A9B6B000E780F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168452B7A9B6B000E780F /* AppDelegate.swift */; };
 		169168482B7A9B6B000E780F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169168472B7A9B6B000E780F /* SceneDelegate.swift */; };
 		1691684D2B7A9B6B000E780F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1691684B2B7A9B6B000E780F /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1690F3AD2B977E2700D68109 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		169168422B7A9B6B000E780F /* MyRedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169168452B7A9B6B000E780F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		169168472B7A9B6B000E780F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1691684E2B7A9B6D000E780F /* Assets.xcassets */,
 				169168502B7A9B6D000E780F /* LaunchScreen.storyboard */,
 				169168532B7A9B6D000E780F /* Info.plist */,
+				1690F3AD2B977E2700D68109 /* DataManager.swift */,
 				1691685E2B7B6A9D000E780F /* APIManager.swift */,
 				169168602B851A8F000E780F /* PostListViewController.swift */,
 				169168962B8E51A1000E780F /* PostDetailsViewController.swift */,
@@ -166,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1691685F2B7B6A9D000E780F /* APIManager.swift in Sources */,
+				1690F3AE2B977E2700D68109 /* DataManager.swift in Sources */,
 				169168612B851A8F000E780F /* PostListViewController.swift in Sources */,
 				169168972B8E51A1000E780F /* PostDetailsViewController.swift in Sources */,
 				169168462B7A9B6B000E780F /* AppDelegate.swift in Sources */,

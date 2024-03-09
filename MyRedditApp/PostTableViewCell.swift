@@ -11,6 +11,7 @@ class PostTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var postView: PostView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +22,17 @@ class PostTableViewCell: UITableViewCell {
         postView.configure(with: redditPost)
     }
     
+    func updateSaveButtonUI(){
+        postView.updateSaveButtonUI()
+         
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         postView.prepareForReuse()
     }
+    
+    
     
     
     

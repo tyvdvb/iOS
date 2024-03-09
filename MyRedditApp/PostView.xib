@@ -51,16 +51,22 @@
                     <rect key="frame" x="0.0" y="0.0" width="393" height="37.666666666666664"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-64-hAy">
-                            <rect key="frame" x="0.0" y="0.0" width="243.66666666666666" height="37.666666666666664"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="37.666666666666664"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwz-re-zYy">
-                            <rect key="frame" x="243.66666666666663" y="0.0" width="149.33333333333337" height="37.666666666666664"/>
+                            <rect key="frame" x="343" y="0.0" width="50" height="37.666666666666664"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="KKc-Jv-tjF"/>
+                            </constraints>
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system" title=""/>
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="qug-Bd-s9I"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -90,6 +96,9 @@
                             <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system" title="Share" imagePadding="8">
                                 <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="-1" eventType="touchUpInside" id="Fst-Xf-JJ6"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
@@ -123,10 +132,10 @@
         <image name="message.fill" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
