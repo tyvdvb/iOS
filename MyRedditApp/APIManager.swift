@@ -34,8 +34,8 @@ struct RedditPost: Codable, Equatable {
     let ups: Int
     let downs: Int
     let domain : String?
- 
-   
+    
+    
 }
 
 
@@ -135,6 +135,6 @@ extension RedditPost {
     static func == (lhs: RedditPost, rhs: RedditPost) -> Bool {
         return lhs.id == rhs.id
     }
-
+    
 }
 

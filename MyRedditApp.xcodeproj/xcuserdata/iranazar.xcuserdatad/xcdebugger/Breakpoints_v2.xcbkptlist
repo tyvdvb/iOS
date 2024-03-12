@@ -3,4 +3,131 @@
    uuid = "FF3FC0DF-FD36-4190-A864-B0A0C57A4642"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCE70871-B8FD-48AB-B79A-5A34E5B89241"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditApp/PostListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A4F145D-C862-4FF5-959C-6AA910C60AE5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditApp/PostListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRedditApp/PostListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "searchBar(_:textDidChange:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5 - 4d8af0b9fd8f28f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditApp.PostListViewController.tableView(_: __C.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "MyRedditApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iranazar/Desktop/ios/MyRedditApp%202/MyRedditApp/PostListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "174"
+                  endingLineNumber = "174"
+                  offsetFromSymbolStart = "424">
+               </Location>
+               <Location
+                  uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5 - f0af49c3ce38546a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditApp.PostListViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "MyRedditApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iranazar/Desktop/ios/MyRedditApp%202/MyRedditApp/PostListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5 - f0af49c3ce3854c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditApp.PostListViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "MyRedditApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iranazar/Desktop/ios/MyRedditApp%202/MyRedditApp/PostListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5 - f0af49c3ce3853ed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditApp.PostListViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "MyRedditApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iranazar/Desktop/ios/MyRedditApp%202/MyRedditApp/PostListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "203"
+                  endingLineNumber = "203"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "75E8CFE6-2679-4BAB-B442-C453DD8584B5 - f0af49c3ce385312"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MyRedditApp.PostListViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "MyRedditApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/iranazar/Desktop/ios/MyRedditApp%202/MyRedditApp/PostListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

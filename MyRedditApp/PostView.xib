@@ -15,7 +15,7 @@
                 <outlet property="postView" destination="FNe-ZA-eOV" id="YTc-MB-42z"/>
                 <outlet property="rattingLabel" destination="FVi-NE-RBp" id="JfP-tR-kUs"/>
                 <outlet property="savedBookmark" destination="vwz-re-zYy" id="ZnM-zg-80E"/>
-                <outlet property="titleLabel" destination="hkW-9P-6pX" id="r92-HZ-e8y"/>
+                <outlet property="titleLabel" destination="hba-iG-fOZ" id="kiO-4G-MHW"/>
                 <outlet property="usernameLabel" destination="b8q-64-hAy" id="7nA-UG-D0i"/>
             </connections>
         </placeholder>
@@ -28,6 +28,7 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sKW-uw-pKf">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="172.66666666666666"/>
+                            <color key="backgroundColor" systemColor="systemGray5Color"/>
                         </imageView>
                     </subviews>
                     <constraints>
@@ -37,11 +38,12 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gSV-gC-pFV">
                     <rect key="frame" x="0.0" y="37.666666666666657" width="393" height="52.333333333333343"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="gfhdfbjhfdfjhshdsfbghsfbhg" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkW-9P-6pX">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hba-iG-fOZ">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="52.333333333333336"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="52.5" id="EUI-Mi-eSo"/>
@@ -133,6 +135,9 @@
         <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
         <systemColor name="systemGray3Color">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

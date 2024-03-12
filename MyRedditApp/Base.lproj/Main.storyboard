@@ -57,6 +57,9 @@
                                             <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="large"/>
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large" weight="semibold"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="savedPostsButtonTapped:" destination="k1p-zb-r0I" eventType="touchUpInside" id="5Fz-cA-Fne"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
@@ -114,6 +117,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="RYU-9o-TNs"/>
                     <connections>
+                        <outlet property="savedPostsButton" destination="tEQ-YO-hsG" id="Jo2-8D-evp"/>
+                        <outlet property="searchBar" destination="oLp-Is-TLR" id="eMl-Zr-rNd"/>
                         <outlet property="tableView" destination="8Vc-2b-U7c" id="Zri-Y4-H7f"/>
                         <segue destination="0Tx-Rh-wWm" kind="show" identifier="go_to_details" id="0K6-7e-xVg"/>
                     </connections>

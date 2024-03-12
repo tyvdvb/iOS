@@ -8,7 +8,8 @@
 import UIKit
 import SDWebImage
 
-class PostListViewController: UIViewController {
+
+class PostListViewController: UIViewController, DataManagerDelegate{
     
     struct Const {
         static let cellIdentifiear = "Cell"
@@ -21,22 +22,72 @@ class PostListViewController: UIViewController {
     private var isFetching = false
     private let pageSize = 10
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var savedPostsButton: UIButton!
+    private var isSavedPostMode = false
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        fetchPosts()
+    @IBOutlet var searchBar: UISearchBar!
+    
+    
+    @IBAction func savedPostsButtonTapped(_ sender: Any) {
+        isSavedPostMode.toggle()
+        
+        savedPostsButton.tintColor = isSavedPostMode ? UIColor.systemBlue : UIColor.systemOrange
+        
+        searchBar.text = ""
+        
+        posts.removeAll()
+        
+        if isSavedPostMode {
+            fetchSavedPosts()
+        } else {
+            fetchPosts()
+        }
+        configureSearchBarVisibility()
+    }
+    
+    private func fetchSavedPosts() {
+        posts = DataManager.shared.getAllSavedPosts()
+        tableView.reloadData()
     }
     
     
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchBar.delegate = self
+        DataManager.shared.delegate = self
+        configureSearchBarVisibility()
+        fetchPosts()
+    }
+    
+    
+    func didUnsavePost(_ post: RedditPost) {
+        if isSavedPostMode, let index = posts.firstIndex(where: { $0.id == post.id }) {
+            posts.remove(at: index)
+            tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
+    
+    private func configureSearchBarVisibility() {
+        searchBar.isHidden = !isSavedPostMode
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Const.goToDetailsSegueID:
-            let nextVc = segue.destination as! PostDetailsViewController
-            DispatchQueue.main.async {
-                if let lastSelectedPost = self.selectedPost {
-                    nextVc.configure(with: lastSelectedPost)
+            if let nextVc = segue.destination as? PostDetailsViewController,
+               let selectedPost = sender as? RedditPost {
+                nextVc.currentPost = selectedPost
+                nextVc.isSaved = selectedPost.saved
+                nextVc.onSaveStatusChange = { [weak self] post in
+                    self?.handleSaveStatusChange(for: post)
+                }
+                DispatchQueue.main.async {
+                    if let lastSelectedPost = self.selectedPost {
+                        nextVc.configure(with: lastSelectedPost)
+                    }
                 }
             }
         default:
@@ -44,6 +95,14 @@ class PostListViewController: UIViewController {
         }
     }
     
+    
+    func handleSaveStatusChange(for post: RedditPost) {
+        if let index = self.posts.firstIndex(where: { $0.id == post.id }) {
+            self.posts[index] = post
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
     
     
     private func fetchPosts() {
@@ -73,6 +132,7 @@ class PostListViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension PostListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,6 +152,7 @@ extension PostListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isSavedPostMode {return}
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
         let screenHeight = scrollView.frame.size.height
@@ -103,11 +164,40 @@ extension PostListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedPost = self.posts[indexPath.row]
-        self.performSegue(
-            withIdentifier: Const.goToDetailsSegueID,
-            sender: nil
-        )
+        //        self.performSegue(
+        //            withIdentifier: Const.goToDetailsSegueID,
+        //            sender: nil
+        //        )
+        self.performSegue(withIdentifier: Const.goToDetailsSegueID, sender: self.posts[indexPath.row])
+        
     }
     
 }
+
+// MARK: - UISearchBarDelegate
+extension PostListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("Search Text: \(searchText)")
+        guard isSavedPostMode else {
+            return
+        }
+        let filteredPosts: [RedditPost]
+        
+        if searchText.isEmpty {
+            filteredPosts = DataManager.shared.getAllSavedPosts()
+        } else {
+            filteredPosts = DataManager.shared.getAllSavedPosts().filter {
+                let titleRange = $0.title.range(of: searchText, options: .caseInsensitive)
+                return titleRange != nil
+            }
+        }
+        
+        posts = filteredPosts
+        tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
 

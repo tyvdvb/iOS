@@ -7,9 +7,15 @@
 
 import Foundation
 
+protocol DataManagerDelegate: AnyObject {
+    func didUnsavePost(_ post: RedditPost)
+}
+
 class DataManager {
     
     static let shared = DataManager()
+    
+    weak var delegate: DataManagerDelegate?
     
     private var savedPosts: [RedditPost] = []
     private let savedPostsFileURL: URL
@@ -43,6 +49,8 @@ class DataManager {
     func unsavePost(_ post: RedditPost) {
         savedPosts.removeAll { $0.id == post.id }
         savePostsToFile()
+        
+        delegate?.didUnsavePost(post)
     }
     
     private func savePostsToFile() {

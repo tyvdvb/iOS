@@ -15,7 +15,6 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func configure(with redditPost: RedditPost) {
@@ -24,7 +23,6 @@ class PostTableViewCell: UITableViewCell {
     
     func updateSaveButtonUI(){
         postView.updateSaveButtonUI()
-         
     }
     
     override func prepareForReuse() {
